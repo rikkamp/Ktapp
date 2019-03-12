@@ -1,0 +1,26 @@
+Er moet een app gerealiseerd worden.
+
+In deze app moet je kunnen inloggen om alle data veilig te houden.
+ook als je ingelogd bent moet je meteen je gegevens zien van de huidige dag.
+hiernaast moet er een mogelijkheid zijn om een andere datum te selecteren en data van op te halen.
+Bij het hoofd scherm moet er een knop komen waar je nieuwe data kan toevoegen. Deze wordt dan opgestuurd en meteen op je scherm gezet.
+Ook moeten er nog knoppen komen om data te verwijderen of aantepassen voor het geval als er fouten worden gemaakt.
+Als laatst wil ik een knop hebben waar je op kan klikken zodat er van de data van die week een pdf'je wordt gemaakt en wordt opgestuurd naar de gebruiker zijn mail adress.
+
+Er moet een functie komen om de gebruiker te laten inloggen met zijn email en een wachtwoord.
+Dit zorgt ervoor dat de gebruiker zijn data veilig is.
+
+Er moet een functie komen om de data op te halen op basis van datum en de gebruiker.
+Dit zorgt ervoor dat de gebruiker alle data ziet.
+
+Er moet een functie komen om de data aan te passen.
+Dit zorgt ervoor dat alle data die verkeerd is ingevuld aangepast kan worden
+
+Er moet een functie komen om de data te archiveren.
+dit zorgt ervoor dat als er onnodige/onjuiste data is uit het scherm gehaald kan worden.
+
+Er moet een functie komen om een pdf te maken.
+Dit zorgt ervoor dat er een duidelijk overzicht komt met alle data van die week. Hier moet ook een datum week en dag op.
+
+Er moet een functie komen om een pdf te mailen naar de gebruiker zijn email.
+Dit zorgt ervoor dat er nog een laatste check uitgevoerd kan worden op het forumlier voordat hij naar de eindpersoon gaat

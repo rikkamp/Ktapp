@@ -1,0 +1,19 @@
+Om de data van de database naar de app te sturen zal Laravel gebruikt worden.
+Dit op API basis zodat er een veilige maar ook makkelijke verbinding is tussen de database en de app.
+Voor de opmaak van de app zal er gebruik gemaakt worden van react.
+Dit omdat het makkelijker is om met data te werken en af te handelen van de database en het zeer data vriendelijk is.
+Dit project zal vooral gemaakt worden met PHP en JS. Het zal op een windows server gezet worden aangezien we daar al een host hebben.
+Er zal met dezelfde reden ook gebruikt gemaakt worden van PHPmyadmin als database. Hier zal de connectie grootendeels gaan via laravel.
+Indien er aparte SQL nodig is zal dat ook gebruikt worden.
+
+Ook zal er gebruik gemaakt worden van react-browser-routing zodat er een makelijke overgang is van pagina's
+Om de styling te verduidelijken wordt er gebruik gemaakt van node-sass.
+
+Voor het inloggen zal de gebruikersnaam een email adress zijn dit zodat er makkelijk gekeken kan worden welk mail adress
+er de data moet ontvangen.
+
+Voor het ophalen en versturen van en naar de database worden er fetches gebruikt zodat het verder bij de voorkant afgehandeld wordt.
+
+Om de pdf te maken zal er gebruikt worden gemaakt van een library genaamt laravel DOMPDF dit zorgt ervoor dat er een makkelijke pdf gemaakt kan worden.
+
+Om de mail te versturen naar de gebruiker zal er van een andere library gebruik gemaakt worden genaamd phpmailer. dit kan later nog aanpassen indien er voor laravel een makkelijkere manier is.

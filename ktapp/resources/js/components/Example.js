@@ -2,21 +2,35 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 export default class Example extends Component {
-    render() {
-        return (
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <div className="card">
-                            <div className="card-header">Example Component</div>
+    constructor(props) {
+        super(props);
 
-                            <div className="card-body">
-                                I'm an example component!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        this.state = {
+            token: ''
+        };
+    }
+    
+    componentWillMount() {
+        let tokens = document.getElementsByName('csrf-token');
+        for(let token in tokens) {
+            token = parseInt(token);
+            if(!isNaN(token)) {
+                if(tokens[token].getAttribute('name') === 'csrf-token') {
+                    this.setState({
+                        token: tokens[token].getAttribute('content')
+                    })
+                }
+            }
+        }
+    }
+
+
+    render() {
+
+        return (
+            <p>
+                test
+            </p>
         );
     }
 }

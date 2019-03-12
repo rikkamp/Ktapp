@@ -61176,28 +61176,39 @@ var Example =
 function (_Component) {
   _inherits(Example, _Component);
 
-  function Example() {
+  function Example(props) {
+    var _this;
+
     _classCallCheck(this, Example);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Example).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Example).call(this, props));
+    _this.state = {
+      token: ''
+    };
+    return _this;
   }
 
   _createClass(Example, [{
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      var tokens = document.getElementsByName('csrf-token');
+
+      for (var token in tokens) {
+        token = parseInt(token);
+
+        if (!isNaN(token)) {
+          if (tokens[token].getAttribute('name') === 'csrf-token') {
+            this.setState({
+              token: tokens[token].getAttribute('content')
+            });
+          }
+        }
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row justify-content-center"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-8"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-header"
-      }, "Example Component"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, "I'm an example component!")))));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "test");
     }
   }]);
 
@@ -61230,8 +61241,8 @@ if (document.getElementById('example')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\website projecten\ktapp\Ktapp\ktapp\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\website projecten\ktapp\Ktapp\ktapp\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\website projecten\KampmanTransport App\ktapp\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\website projecten\KampmanTransport App\ktapp\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
