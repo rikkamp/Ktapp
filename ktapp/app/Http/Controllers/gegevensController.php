@@ -137,6 +137,7 @@ class gegevensController extends Controller
                 $message->attach(public_path() . '/' . $path);
                 $message->subject("De gegevens van week ".$week);
             });
+            unlink($path);
         return $result = ['result' => true];
     }
 }
