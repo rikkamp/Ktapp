@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gegevens;
+use App\User;
+use PDF;
+use Mail;
 
 class gegevensController extends Controller
 {
@@ -104,5 +107,36 @@ class gegevensController extends Controller
         ]);
         $item->update(['archived' => 1]);
         return $item->get();
+    }
+
+    public function pdf(Request $request) {
+        $data = $request->validate([
+            'UserId' => 'required|integer',
+            'GegevensWeek' => 'integer|required',
+        ]);
+
+        $gegevens = Gegevens::where([
+            ['UserId', $data['UserId']],
+            ['GegevensWeek', $data['GegevensWeek']],
+            ['archived', 0],
+        ])->get();
+
+        $default = Gegevens::select('GegevensDag', 'GegevensDatum', 'GegevensWeek')->distinct()->get();
+
+        $week = $data['GegevensWeek'];
+        view()->share('default', $default);
+        view()->share('week', $week);
+        view()->share('gegevens', $gegevens);
+        $user = User::find($data['UserId'])->get()->first();
+        $pdf = PDF::loadView('pdf')->save('files/'. $data['UserId'] .'Week'. $data['GegevensWeek'].'.pdf');
+        $path = 'files/'. $data['UserId'] .'Week'. $data['GegevensWeek'].'.pdf';
+        $info = ['gegevens' => $user];
+            Mail::send('mail', $info, function ($message) use ($path, $week, $user) {
+                $message->from('KT-APP@noreply.com', 'root');
+                $message->to($user['email'], $user['name']);
+                $message->attach(public_path() . '/' . $path);
+                $message->subject("De gegevens van week ".$week);
+            });
+        return $result = ['result' => true];
     }
 }
