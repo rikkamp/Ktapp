@@ -1,0 +1,26 @@
+.login {
+	display: block;
+	&__container {
+		height: calc(100vh - 80px);
+		position: relative;
+		background-color: blue;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__form {
+		background: white;
+		border-radius: 8px;
+		margin: 0 auto;
+		width: 35%;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__input {
+		width: 45%;
+		margin: 0 auto;
+	}
+}
