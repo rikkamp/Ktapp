@@ -8,34 +8,36 @@
 <body>
 	{{$week}}
 	@foreach ($default as $dag)
-	<table>
-		<tr>
-			<th>
-				{{$dag['GegevensDatum']}}
-			</th>
-			<th>
-				{{$dag['GegevensDag']}}
-			</th>
-		</tr>
-		<tr>
-			<th>Km</th>
-			<th>Locatie</th>
-			<th>Aankomst</th>
-			<th>Vertrek</th>
-			<th>No</th>
-		</tr>
-		@foreach ($gegevens as $items)
-			@if($dag['GegevensDag'] === $items['GegevensDag'])
+		@if($dag !== "gegevens_dag")
+			<table>
 				<tr>
-					<td>{{$items['GegevensKm']}}</td>
-					<td>{{$items['GegevensLocatie']}}</td>
-					<td>{{$items['GegevensAankomst']}}</td>
-					<td>{{$items['GegevensVertrek']}}</td>
-					<td>{{$items['GegevensNo']}}</td>
+					<th>
+						{{$dag['gegevens_datum']}}
+					</th>
+					<th>
+						{{$dag['gegevens_dag']}}
+					</th>
 				</tr>
-			@endif
-		@endforeach
-	</table>
-	@endforeach
-</body>
-</html>
+				<tr>
+					<th>Km</th>
+					<th>Locatie</th>
+					<th>Aankomst</th>
+					<th>Vertrek</th>
+					<th>No</th>
+				</tr>
+				@foreach ($gegevens as $items)
+				@if($dag['gegevens_dag'] === $items['gegevens_dag'])
+				<tr>
+						<td>{{$items['gegevens_km']}}</td>
+						<td>{{$items['gegevens_locatie']}}</td>
+						<td>{{$items['gegevens_aankomst']}}</td>
+						<td>{{$items['gegevens_vertrek']}}</td>
+						<td>{{$items['gegevens_no']}}</td>
+					</tr>
+					@endif
+					@endforeach
+				</table>
+				@endif
+			@endforeach
+		</body>
+		</html>

@@ -14,17 +14,19 @@ class CreateGegevensTable extends Migration
     public function up()
     {
         Schema::create('gegevens', function (Blueprint $table) {
-            $table->increments('GegevensId');
-            $table->text('UserId');
-            $table->date('GegevensDatum');
-            $table->integer('GegevensWeek');
-            $table->enum('GegevensDag', ['Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag', 'Zondag']);
-            $table->integer('GegevensJaar');
-            $table->text('GegevensKm')->nullable();
-            $table->text('GegevensLocatie')->nullable();
-            $table->text('GegevensAankomst')->nullable();
-            $table->text('GegevensVertrek')->nullable();
-            $table->text('GegevensNo')->nullable();
+            $table->increments('gegevens_id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->date('gegevens_datum');
+            $table->integer('gegevens_week');
+            $table->integer('days_id')->unsigned();
+            $table->foreign('days_id')->references('id')->on('days_of_week');
+            $table->integer('gegevens_jaar');
+            $table->text('gegevens_km')->nullable();
+            $table->text('gegevens_locatie')->nullable();
+            $table->text('gegevens_aankomst')->nullable();
+            $table->text('gegevens_vertrek')->nullable();
+            $table->text('gegevens_no')->nullable();
             $table->boolean('archived')->default(0);
             $table->timestamps();
         });

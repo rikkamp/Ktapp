@@ -13,19 +13,22 @@ class DataTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('days_of_week')->insert([
+            'dag'     => 'Maandag',
+        ]);
         //
         DB::table('gegevens')->insert([
-            'UserId'            => '1',
-            'GegevensDatum'     => '2019-03-18',
-            'GegevensWeek'      => '12',
-            'GegevensDag'       => 'Maandag',
-            'GegevensJaar'      => '2019',
-            'GegevensKm'        => '132',
-            'GegevensLocatie'   => 'Rotterdam',
-            'GegevensAankomst'  => '17:30',
-            'GegevensVertrek'   => '19:10',
-            'GegevensNo'        => '02-hf-xz',
-            'archived'          => 0,
+            'user_id'            => '1',
+            'gegevens_datum'     => '2019-03-18',
+            'gegevens_week'      => '12',
+            'days_id'            => '1',
+            'gegevens_jaar'      => '2019',
+            'gegevens_km'        => '132',
+            'gegevens_locatie'   => 'Rotterdam',
+            'gegevens_aankomst'  => '17:30',
+            'gegevens_vertrek'   => '19:10',
+            'gegevens_no'        => '02-hf-xz',
+            'archived'           => 0,
 
         ]);
     }
