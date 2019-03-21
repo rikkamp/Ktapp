@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 export default class Login extends Component {
+	
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -11,6 +13,7 @@ export default class Login extends Component {
 	}
 	
 	componentWillMount() {
+		console.log(document.cookie);
 		let tokens = document.getElementsByName('csrf-token');
 		for(let token in tokens) {
 			token = parseInt(token);
@@ -39,7 +42,23 @@ export default class Login extends Component {
 		}
 
 		this.login = () => {
-			// fetch()
+			axios.post('/api/checklogin', {
+				email: this.state.username,
+				password: this.state.password
+			}).then(response => {
+				// let response = JSON.stringify(responseJSON);
+				console.log(response.data)
+				if(response.data !== undefined) {
+					if(response.data.result) {
+						console.log(response.data.data.email)
+						let date = new Date();
+						let year = date.getFullYear();
+						document.cookie = `user=${response.data.data.email}; expires=${new Date(year + 100).toUTCString}; secured`;
+						document.cookie = `password=${response.data.data.password}; expires=${new Date(year + 100).toUTCString}; secured`;
+						console.log(document.cookie)
+					}
+				}
+			})
 		}
 
 		return (

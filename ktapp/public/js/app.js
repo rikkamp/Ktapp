@@ -61216,6 +61216,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -61233,6 +61235,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -61258,6 +61261,7 @@ function (_Component) {
   _createClass(Login, [{
     key: "componentWillMount",
     value: function componentWillMount() {
+      console.log(document.cookie);
       var tokens = document.getElementsByName('csrf-token');
 
       for (var token in tokens) {
@@ -61289,7 +61293,25 @@ function (_Component) {
         });
       };
 
-      this.login = function () {// fetch()
+      this.login = function () {
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/api/checklogin', {
+          email: _this2.state.username,
+          password: _this2.state.password
+        }).then(function (response) {
+          // let response = JSON.stringify(responseJSON);
+          console.log(response.data);
+
+          if (response.data !== undefined) {
+            if (response.data.result) {
+              console.log(response.data.data.email);
+              var date = new Date();
+              var year = date.getFullYear();
+              document.cookie = "user=".concat(response.data.data.email, "; expires=").concat(new Date(year + 100).toUTCString, "; secured");
+              document.cookie = "password=".concat(response.data.data.password, "; expires=").concat(new Date(year + 100).toUTCString, "; secured");
+              console.log(document.cookie);
+            }
+          }
+        });
       };
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -61430,16 +61452,37 @@ var Index =
 function (_Component) {
   _inherits(Index, _Component);
 
-  function Index() {
+  function Index(props) {
+    var _this;
+
     _classCallCheck(this, Index);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Index).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Index).call(this, props));
+    _this.state = {
+      id: 0
+    };
+    return _this;
   }
 
   _createClass(Index, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var tokens = document.getElementsByName('id');
+
+      for (var token in tokens) {
+        token = parseInt(token);
+
+        if (!isNaN(token)) {
+          this.setState({
+            token: tokens[token].getAttribute('content')
+          });
+        }
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.token);
     }
   }]);
 
@@ -61448,8 +61491,8 @@ function (_Component) {
 
 
 
-if (document.querySelector('.main')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Index, null), document.querySelector('.main'));
+if (document.querySelector('.crud')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Index, null), document.querySelector('.crud'));
 }
 
 /***/ }),

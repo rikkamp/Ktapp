@@ -9,16 +9,15 @@
 </head>
 <body>
 	
-	<div class="login">
+	{{-- <div class="login">
 
-	</div>
+	</div> --}}
 	<script src='js/app.js'></script>
-	@if (Auth::viaRemember())
+	@if (Auth::viaRemember() || isset(Auth::user()->email))
 
 		<script>window.location = '/home'</script>
 
 	@endif
-
 	@if ($message = Session::get('error'))
 
 		<div>
@@ -35,7 +34,7 @@
 
 	@endif
 
-	<form method="post" action={{url('/main/checklogin')}}>
+	<form method="post" action={{url('/checklogin')}}>
 		{{ csrf_field() }}
 		email<input type="email" name="email">
 		pass<input type="password" name="password">
