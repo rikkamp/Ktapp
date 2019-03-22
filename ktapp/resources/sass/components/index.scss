@@ -1,0 +1,138 @@
+.date{
+	display: flex;
+	flex-direction: row;
+
+	&__picker {
+		display: flex;
+		border: none;
+		outline: none;
+		position: relative;
+		overflow: visible;
+		height: 35px;
+		width: 160px;
+		border-radius: 8px;
+		padding-left: 36px;
+		
+		&::-webkit-inner-spin-button {
+			z-index: 1;
+			display: none;
+		}
+
+		&::-webkit-clear-button {
+			z-index: 1;
+			display: none;
+		}
+
+		&:before {
+			content: url('../../img/calendar-alt-solid.svg');
+			cursor: pointer;
+			height: 100%;
+			width: 24px;
+			padding-top: 2px;
+			position: absolute;
+			margin-left: -27px;
+			top: 5%;
+		}
+		
+		&::-webkit-calendar-picker-indicator {
+			position: absolute;
+			overflow: visible;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 3;
+			bottom: 9%;
+			width: 38.5%;
+			height: auto;
+			background: transparent;
+			color: transparent;
+			display: block;
+			box-sizing: border-box;
+			margin-left: -28px;
+			top: 5%;
+		}
+	}
+}
+
+.item {
+	display: flex;
+	border-bottom: 1px solid $orange;
+	align-items: center;
+	
+	&__name {
+		min-width: 108px;
+		padding: 20px 0;
+		margin-bottom: 0;
+		font-family: $font;
+		color: $wit;
+		font-size: 18px;
+		
+		&--empty {
+			min-width: 108px;
+			padding: 20px 0;
+			margin-bottom: 0;
+			font-family: $font;
+			color: $wit;
+			opacity: 0.8;
+			font-size: 18px;
+		}
+		
+		&--title {
+			min-width: 108px;
+			padding: 8px 0;
+			margin-bottom: 0;
+			font-family: $font;
+			color: $orange;
+			font-weight: bold;
+			font-size: 20px;
+		}
+	}
+
+	&__button {
+		height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-top: 3px !important;
+	}
+}
+
+.button {
+	border: 1px solid $orange;
+	background: $button-blue;
+	padding: 6px 35px;
+	font-family: $font;
+	font-weight: bold;
+	color: $wit;
+	border-radius: 8px;
+	font-size: 18px;
+	box-sizing: border-box;
+	line-height: normal;
+	text-align: center;
+	margin-left: 31px;
+	&--normal {
+		margin-left: 0;
+	}
+}
+
+
+.crud {
+	padding: 35px 16px;
+	width: 100%;
+	height: 86%;
+	overflow-x: scroll;
+
+	&__box {
+		width: fit-content;
+	}
+
+	&__container {
+		background: $dark-blue;
+		width: fit-content;
+		padding: 35px;
+		margin-top: 30px;
+		min-width: 96.5vw;
+		margin-right: 16px;
+	}
+}
+

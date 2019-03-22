@@ -1,6 +1,6 @@
-
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i');
 // Body
-$body-bg: #f8fafc;
+$body-bg: #014454;
 
 // Typography
 $font-family-sans-serif: "Nunito", sans-serif;
@@ -8,13 +8,9 @@ $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 // Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66D9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$dark-blue: #045F74;
+$nav-blue: #015A6F;
+$button-blue: linear-gradient(270deg, #0096BA 22.61%, rgba(0, 150, 186, 0) 77.39%), #00CFFF;
+$wit: #FFFFFF;
+$orange: #FF7A00;
+$font: 'Ubuntu', sans-serif;

@@ -6,21 +6,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
+	<link rel='stylesheet' href='css/app.css'>
 </head>
-<body>
-	hallo
+<nav class="nav">
 	@if(isset(Auth::user()->email))
-		<div>
+		<span class="nav__item">
 			ghallo {{Auth::user()->email}}
-		</div>
-		<a href='/loggout'>loguit</a>
+		</span>
+		<a href='/loggout' class="nav__item--loggout"></a>
 	@else
-		<script>window.location = "/main";</script>
-		<p>hoi</p>
+		<script>window.location = "/";</script>
 	@endif
+</nav>
+<body>
 	<div class="crud" >
-
+		
 	</div>
 	<script src='js/app.js'></script>
+	<footer class="footer nav">
+		<div class="credits">
+			<span class="credits__text">Made by Rik Kampman</span>
+		</div>
+	</footer>
 </body>
 </html>

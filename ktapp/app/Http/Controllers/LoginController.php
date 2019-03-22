@@ -26,7 +26,7 @@ class LoginController extends Controller
 
         $remember = $request->has('remember_me') ? true : false;
         if (Auth::attempt($user_data, $remember)) {
-            return Auth::user();
+            return view('home');
         } else {
             return array('error' => 'deze is onjuist');
         }

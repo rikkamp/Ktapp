@@ -4,7 +4,9 @@
 
 // Variables
 @import 'variables';
-@import './components/Login.scss';
+@import './components/index.scss';
+@import './components/popup.scss';
+@import './components/edit.scss';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -16,4 +18,64 @@
 
 body {
   margin: 0;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.nav {
+  background: $nav-blue;
+  display: flex;
+  padding: 8px;
+  width: -webkit-fill-available;
+  justify-content: space-between;
+  
+  &__item {
+    color: $wit;
+    font-family: $font;
+    font-size: 16px;
+    font-weight: 800;
+
+    &--loggout {
+      background: url('../img/sign-out-alt-solid.svg');
+      width: 30px;
+      color: white;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.footer {
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: -webkit-fill-available;
+}
+
+.credits {
+  display: flex;
+  &__text {
+    color: $wit;
+    font-family: $font;
+    font-size: 16px;
+    font-weight: 800;
+  }
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  
+  &:horizontal{
+    height: 16px;
+  }
+
+  &-track {
+    border-radius: 8px;
+    background: $nav-blue;
+  }
+  
+  &-thumb {
+    border-radius: 8px;
+    background: $orange;
+  }
 }

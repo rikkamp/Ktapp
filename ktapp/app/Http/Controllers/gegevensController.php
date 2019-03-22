@@ -8,48 +8,49 @@ use App\User;
 use App\DaysOfWeek;
 use PDF;
 use Mail;
+use Auth;
 
 class GegevensController extends Controller
 {
     public function get(Request $request)
     {
-        $data = $request->validate([
-            'user_id' => 'required|integer',
-            'gegevens_datum' => 'date|nullable',
-            'gegevens_week' => 'integer|nullable',
-        ]);
+        if(Auth::check()) {
+            $data = $request->validate([
+                'gegevens_datum' => 'date|required_without:gegevens_week',
+                'gegevens_week' => 'integer|required_without:gegevens_datum',
+            ]);
 
-        if(isset($data['gegevens_week'])) {
-            $result = [];
-            $items = Gegevens::where([
-                ['user_id', $data['user_id']],
-                ['gegevens_week', $data['gegevens_week']],
+            if(isset($data['gegevens_week'])) {
+                $result = [];
+                $items = Gegevens::where([
+                    ['user_id', Auth::user()->id],
+                    ['gegevens_week', $data['gegevens_week']],
                 ['archived', 0],
-            ])->get();
+                ])->get();
 
-            foreach($items as $item) {
-                array_push($result, $item);
-                $item['gegevens_dag'] = $item->days['dag'];
+                foreach($items as $item) {
+                    array_push($result, $item);
+                    $item['gegevens_dag'] = $item->days['dag'];
             }
 
-            $result['result'] = true;
-            return $result;
-        } elseif(isset($data['gegevens_datum'])) {
-            $result = [];
-
-            $items = Gegevens::where([
-                ['user_id', $data['user_id']],
-                ['gegevens_datum', $data['gegevens_datum']],
-                ['archived', 0],
-            ])->get();
-
-            foreach($items as $item) {
-                array_push($result, $item);
-                $item['gegevens_dag'] = $item->days['dag'];
+                $result['result'] = true;
+                return $result;
+            } elseif(isset($data['gegevens_datum'])) {
+                $result = [];
+                
+                $items = Gegevens::where([
+                    ['user_id', Auth::user()->id],
+                    ['gegevens_datum', $data['gegevens_datum']],
+                    ['archived', 0],
+                ])->get();
+                
+                foreach($items as $item) {
+                    array_push($result, $item);
+                    $item['gegevens_dag'] = $item->days['dag'];
+                }
+                
+                return ['items' => $result, 'result' => true];
             }
-
-            $result['result'] = true;
-            return $result;
         }
     }
 
