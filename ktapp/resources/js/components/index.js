@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Popup from './Popup';
 import Edit from './Edit';
 
 export default class Index extends Component {
