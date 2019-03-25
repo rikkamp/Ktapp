@@ -22,6 +22,6 @@ Route::get('/loggout', 'LoginController@loggout');
 Route::post('/gegevensGet', 'gegevensController@get');
 Route::put('/gegevens', 'gegevensController@create');
 Route::post('/gegevens', 'gegevensController@update');
-Route::delete('/gegevens', 'gegevensController@archive');
-Route::get('/gegevens/pdf', 'gegevensController@pdf');
+Route::post('/gegevensDelete', 'gegevensController@archive');
+Route::post('/gegevens/pdf', 'gegevensController@pdf');
 

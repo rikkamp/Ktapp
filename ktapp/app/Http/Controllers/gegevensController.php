@@ -56,97 +56,95 @@ class GegevensController extends Controller
 
     public function create(Request $request)
     {
-        $data = $request->validate([
-            'user_id' => 'required|integer',
-            'gegevens_datum' => 'required|date',
-            'gegevens_week' => 'required|integer',
-            'days_id' => 'required|string',
-            'gegevens_jaar' => 'required|integer',
-            'gegevens_km' => 'string|nullable',
-            'gegevens_locatie' => 'string|nullable',
-            'gegevens_aankomst' => 'string|nullable',
-            'gegevens_vertrek' => 'string|nullable',
-            'gegevens_no' => 'string|nullable',
-        ]);
+        if(Auth::check()) {
+            $data = $request->validate([
+                'gegevens_datum' => 'required|date',
+                'gegevens_week' => 'required|integer',
+                'days_id' => 'required|integer',
+                'gegevens_jaar' => 'required|integer',
+                'gegevens_km' => 'string|nullable',
+                'gegevens_locatie' => 'string|nullable',
+                'gegevens_aankomst' => 'string|nullable',
+                'gegevens_vertrek' => 'string|nullable',
+                'gegevens_no' => 'string|nullable',
+            ]);
 
-        $item = Gegevens::forceCreate($data);
-        return $result = ['result' => true, 'item' => $item];
+            $data['user_id'] = Auth::user()->id;
+
+            $item = Gegevens::forceCreate($data);
+            return $result = ['result' => true, 'item' => $item];
+        }
     }
 
     public function update(Request $request) {
-        $data = $request->validate([
-            'gegevens_id' => 'required|integer',
-            'user_id' => 'required|integer',
-            'gegevens_datum' => 'required|date',
-            'gegevens_week' => 'required|integer',
-            'days_id' => 'required|integer',
-            'gegevens_jaar' => 'required|integer',
-            'gegevens_km' => 'string|nullable',
-            'gegevens_locatie' => 'string|nullable',
-            'gegevens_aankomst' => 'string|nullable',
-            'gegevens_vertrek' => 'string|nullable',
-            'gegevens_no' => 'string|nullable',
-        ]);
+        if(Auth::check()) {
+            $data = $request->validate([
+                'gegevens_id' => 'required|integer',
+                'gegevens_datum' => 'required|date',
+                'gegevens_week' => 'required|integer',
+                'days_id' => 'required|integer',
+                'gegevens_jaar' => 'required|integer',
+                'gegevens_km' => 'string|nullable',
+                'gegevens_locatie' => 'string|nullable',
+                'gegevens_aankomst' => 'string|nullable',
+                'gegevens_vertrek' => 'string|nullable',
+                'gegevens_no' => 'string|nullable',
+            ]);
 
-        $item = Gegevens::where([
-            ['user_id', $data['user_id']],
-            ['gegevens_id', $data['gegevens_id']],
-            ['gegevens_datum', $data['gegevens_datum']],
-            ['gegevens_week', $data['gegevens_week']],
-            ['days_id', $data['days_id']],
-            ['gegevens_jaar', $data['gegevens_jaar']],
-            ['archived', 0],
-        ]);
+            $item = Gegevens::where([
+                ['user_id', Auth::user()->id],
+                ['gegevens_id', $data['gegevens_id']],
+                ['gegevens_datum', $data['gegevens_datum']],
+                ['gegevens_week', $data['gegevens_week']],
+                ['days_id', $data['days_id']],
+                ['gegevens_jaar', $data['gegevens_jaar']],
+                ['archived', 0],
+            ]);
 
-        $item->update($data);
+            $item->update($data);
 
-        return $result = ['result' => true, 'item' => Gegevens::where([
-            ['user_id', $data['user_id']],
-            ['gegevens_id', $data['gegevens_id']],
-            ['gegevens_datum', $data['gegevens_datum']],
-            ['gegevens_week', $data['gegevens_week']],
-            ['days_id', $data['days_id']],
-            ['gegevens_jaar', $data['gegevens_jaar']],
-            ['archived', 0],
-        ])->get()];
+            return $result = ['result' => true, 'item' => Gegevens::where([
+                ['user_id',  Auth::user()->id],
+                ['gegevens_id', $data['gegevens_id']],
+                ['gegevens_datum', $data['gegevens_datum']],
+                ['gegevens_week', $data['gegevens_week']],
+                ['days_id', $data['days_id']],
+                ['gegevens_jaar', $data['gegevens_jaar']],
+                ['archived', 0],
+            ])->get()];
+        }
     }
 
     public function archive(Request $request) {
-        $data = $request->validate([
-            'user_id' => 'required|integer',
-            'gegevens_id' => 'required|integer',
-            'gegevens_datum' => 'date|required',
-            'gegevens_week' => 'integer|required',
-            'days_id' => 'string|required',
-            'gegevens_jaar' => 'integer|required',
-        ]);
+        if(Auth::check()) {
+            $data = $request->validate([
+                'gegevens_id' => 'required|integer'
+            ]);
+            
+            $item = Gegevens::where([
+                'user_id' => Auth::user()->id,
+                'gegevens_id' => $data['gegevens_id'],
+            ])->update(['archived' => 1]);
 
-        $item = Gegevens::where([
-            ['user_id', $data['user_id']],
-            ['gegevens_id', $data['gegevens_id']],
-            ['gegevens_datum', $data['gegevens_datum']],
-            ['gegevens_week', $data['gegevens_week']],
-            ['days_id', $data['days_id']],
-            ['gegevens_jaar', $data['gegevens_jaar']],
-        ]);
-        
-        $item->update(['archived' => 1]);
-        return $result = ['result' => true, 'item' => $item->get()];
+            return $result = ['result' => true, 'item' => Gegevens::where([
+                'user_id' => Auth::user()->id,
+                'gegevens_id' => $data['gegevens_id'],
+            ])->get()];
+        }
     }
     
     public function pdf(Request $request) {
         $data = $request->validate([
-            'user_id' => 'required|integer',
             'gegevens_week' => 'integer|required',
         ]);
 
         $dagen = [];
             
         $gegevens = Gegevens::where([
-            ['user_id', $data['user_id']],
+            ['user_id', Auth::user()->id],
             ['gegevens_week', $data['gegevens_week']],
             ['archived', 0],
-        ])->get();
+        ])->orderBy('gegevens_datum', 'asc')->get();
 
         foreach($gegevens as $item) {
             if (!in_array($item->days['dag'], $dagen)) {
@@ -154,16 +152,17 @@ class GegevensController extends Controller
             }
         }
 
-        $default = Gegevens::select('gegevens_datum', 'gegevens_week')->distinct()->get();
+        $default = Gegevens::select('gegevens_datum', 'gegevens_week', 'days_id')->distinct()->orderBy('gegevens_datum', 'asc')->get();
         $week = $data['gegevens_week'];
 
+        view()->share('dagen', $dagen);
         view()->share('default', $default);
         view()->share('week', $week);
         view()->share('gegevens', $gegevens);
 
-        $user = User::find($data['user_id'])->get()->first();
-        $pdf = PDF::loadView('pdf')->save('files/'. $data['user_id'] .'Week'. $data['gegevens_week'].'.pdf');
-        $path = 'files/'. $data['user_id'] .'Week'. $data['gegevens_week'].'.pdf';
+        $user = User::find(Auth::user()->id)->get()->first();
+        $pdf = PDF::loadView('pdf')->save('files/'. Auth::user()->id .'Week'. $data['gegevens_week'].'.pdf');
+        $path = 'files/'. Auth::user()->id .'Week'. $data['gegevens_week'].'.pdf';
         $info = ['gegevens' => $user];
             Mail::send('mail', $info, function ($message) use ($path, $week, $user) {
                 $message->from('KT-APP@noreply.com', 'root');

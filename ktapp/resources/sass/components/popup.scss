@@ -11,4 +11,25 @@
 	font-family: $font;
 	font-size: 24px;
 	width: 80%;
+
+	&__text {
+		color: $wit;
+		font-family: $font;
+		font-weight: bold;
+		text-align: center;
+
+		&--time {
+			font-weight: normal;
+		}
+	}
+
+	&__button {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	&--warning {
+		background: $orange;
+	}
 }

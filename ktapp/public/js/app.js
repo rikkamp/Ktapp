@@ -61994,6 +61994,79 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Delete.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Delete.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Delete; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Delete =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Delete, _Component);
+
+  function Delete() {
+    _classCallCheck(this, Delete);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Delete).apply(this, arguments));
+  }
+
+  _createClass(Delete, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "popup__box popup popup--warning"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "popup__text"
+      }, "Weet je zeker dat je rit van ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "popup__text popup__text--time"
+      }, this.props.item.gegevens_aankomst && this.props.item.gegevens_aankomst), " tot ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "popup__text popup__text--time"
+      }, this.props.item.gegevens_vertrek && this.props.item.gegevens_vertrek), " wilt verwijderen"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "popup__button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "button button--normal",
+        onClick: this.props.close
+      }, "nee"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "button button--normal",
+        onClick: this.props.handler
+      }, "ja")));
+    }
+  }]);
+
+  return Delete;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Edit.js":
 /*!*****************************************!*\
   !*** ./resources/js/components/Edit.js ***!
@@ -62055,7 +62128,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "KM"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "gegevens_km",
         type: "text",
-        placeholder: this.props.item.gegevens_km,
+        placeholder: this.props.item !== undefined ? this.props.item.gegevens_km : 'Km',
         className: "edit__text",
         onChange: this.props.changeHandler
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -62063,7 +62136,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Locatie"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "gegevens_locatie",
         type: "text",
-        placeholder: this.props.item.gegevens_locatie,
+        placeholder: this.props.item !== undefined ? this.props.item.gegevens_locatie : 'Locatie',
         className: "edit__text edit__text--long",
         onChange: this.props.changeHandler
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -62071,7 +62144,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Aankomst"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "gegevens_aankomst",
         type: "text",
-        placeholder: this.props.item.gegevens_aankomst,
+        placeholder: this.props.item !== undefined ? this.props.item.gegevens_aankomst : 'Aankomst',
         className: "edit__text edit__text--long",
         onChange: this.props.changeHandler
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -62079,7 +62152,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Vertrek"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "gegevens_vertrek",
         type: "text",
-        placeholder: this.props.item.gegevens_vertrek,
+        placeholder: this.props.item !== undefined ? this.props.item.gegevens_vertrek : 'Vertrek',
         className: "edit__text edit__text--long",
         onChange: this.props.changeHandler
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -62087,13 +62160,13 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "No"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "gegevens_no",
         type: "text",
-        placeholder: this.props.item.gegevens_no,
+        placeholder: this.props.item !== undefined ? this.props.item.gegevens_no : 'No',
         className: "edit__text edit__text--long",
         onChange: this.props.changeHandler
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.props.handler,
         className: "button button--normal"
-      }, "Aanpassen"))));
+      }, this.props.item !== undefined ? 'Aanpassen' : 'Nieuw'))));
     }
   }]);
 
@@ -62254,6 +62327,70 @@ if (document.querySelector('.login')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Mail.js":
+/*!*****************************************!*\
+  !*** ./resources/js/components/Mail.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Mail; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Mail =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Mail, _Component);
+
+  function Mail() {
+    _classCallCheck(this, Mail);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Mail).apply(this, arguments));
+  }
+
+  _createClass(Mail, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "popup__box popup popup--warning"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "popup__text"
+      }, this.props.children, this.props.children === 'Mail verstuurd.' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "button button--normal",
+        onClick: this.props.close
+      }, "Oke")));
+    }
+  }]);
+
+  return Mail;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Popup.js":
 /*!******************************************!*\
   !*** ./resources/js/components/Popup.js ***!
@@ -62296,9 +62433,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _Edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Edit */ "./resources/js/components/Edit.js");
+/* harmony import */ var _Delete__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Delete */ "./resources/js/components/Delete.js");
+/* harmony import */ var _Mail__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Mail */ "./resources/js/components/Mail.js");
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -62325,6 +62468,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
 var Index =
 /*#__PURE__*/
 function (_Component) {
@@ -62339,21 +62484,45 @@ function (_Component) {
     _this.state = {
       data: false,
       date: new Date().toISOString().split('T')[0],
+      weekNo: 0,
       items: [],
-      editItem: []
+      editItem: [],
+      mail: false
     };
     return _this;
-  }
+  } // set date, week and year by starting
+  // start
+  // calls getData , getWeek
+
 
   _createClass(Index, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.getData(this.state.date);
+      this.setState({
+        weekNo: this.getWeek(new Date()),
+        day_id: new Date().getDay(),
+        year: new Date().getFullYear()
+      });
     }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
+
+      //will get the week number base on input date
+      // getweek
+      // calls Null
+      this.getWeek = function (datum) {
+        datum = new Date(Date.UTC(datum.getFullYear(), datum.getMonth(), datum.getDate()));
+        datum.setUTCDate(datum.getUTCDate() + 4 - (datum.getUTCDay() || 7));
+        var yearStart = new Date(Date.UTC(datum.getUTCFullYear(), 0, 1));
+        var weekNo = Math.ceil(((datum - yearStart) / 86400000 + 1) / 7);
+        return weekNo;
+      }; // Will update the date , weekNo day_id and the year
+      // update
+      // calls getWeek
+
 
       this.update = function (e) {
         var datum = new Date(e.target.value),
@@ -62364,10 +62533,21 @@ function (_Component) {
         if (day.length < 2) day = '0' + day;
         var date = [year, month, day].join('-');
 
+        var weekNo = _this2.getWeek(datum);
+
+        var day_id = datum.getDay();
+        var jaar = new Date(e.target.value).getFullYear();
+
         _this2.setState({
-          date: date
+          date: date,
+          weekNo: weekNo,
+          day_id: day_id,
+          year: jaar
         });
-      };
+      }; // This function gets the data for the crud. This uses axios(required for laravel) fetch
+      // getData
+      // calls Null
+
 
       this.getData = function (date) {
         axios__WEBPACK_IMPORTED_MODULE_3___default.a.request({
@@ -62393,57 +62573,66 @@ function (_Component) {
             }
           }
         });
-      };
+      }; // This handler will change the data of the input. When its empty it changes it back to normal
+      // changeHandler
+      // calls Null
+
 
       this.changeHandler = function (event) {
         var editItem = _this2.state.editItem;
-        var items = _this2.state.items;
-        editItem[event.target.name] = event.target.value;
+
+        if (event.target.value !== '') {
+          editItem[event.target.name] = event.target.value;
+        } else {
+          editItem[event.target.name] = null;
+        }
 
         _this2.setState({
           editItem: editItem
         });
-      };
+      }; // edit will get the item and sets the editItem state to it. This is so the popup can open and knows which data to use.
+      // edit
+      // calls Null
 
-      this.edit =
-      /*#__PURE__*/
-      function () {
-        var _ref = _asyncToGenerator(
-        /*#__PURE__*/
-        _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(item, index) {
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  _context.next = 2;
-                  return _this2.setState({
-                    editItem: item,
-                    editKey: index
-                  });
 
-                case 2:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee);
-        }));
+      this.edit = function (item, index) {
+        if (item.length === 0 && index === null) {
+          var editItem = {
+            'gegevens_km': null,
+            'gegevens_locatie': null,
+            'gegevens_aankomst': null,
+            'gegevens_vertrek': null,
+            'gegevens_no': null
+          };
 
-        return function (_x, _x2) {
-          return _ref.apply(this, arguments);
-        };
-      }();
+          _this2.setState({
+            editItem: editItem
+          });
+        } else {
+          _this2.setState({
+            editItem: item,
+            editKey: index
+          });
+        }
+      }; // fetchEdit will call to the database and usally returns to the data. In thit case it returns it before the fetch. How ? IDFK
+      // fetchEdit
+      // calls Null
+
 
       this.fetchEdit =
       /*#__PURE__*/
       _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context.prev = _context.next) {
               case 0:
-                console.log(_this2.state.editItem);
+                axios__WEBPACK_IMPORTED_MODULE_3___default.a.request({
+                  url: '/gegevens',
+                  method: 'post',
+                  data: _this2.state.editItem
+                });
 
                 _this2.setState({
                   editItem: []
@@ -62451,11 +62640,124 @@ function (_Component) {
 
               case 2:
               case "end":
-                return _context2.stop();
+                return _context.stop();
             }
           }
-        }, _callee2);
-      }));
+        }, _callee);
+      })); // delete will set a delete item and toggles the popup
+      // delete
+      // class Null
+
+      this.delete = function (i, item) {
+        _this2.setState({
+          delItem: item,
+          deletePopup: !_this2.state.deletePopup
+        });
+      }; // fetch delete will get the right data of the state and send it to the controller.
+      // fetchDelete
+      // calls Null
+
+
+      this.fetchDelete = function () {
+        axios__WEBPACK_IMPORTED_MODULE_3___default.a.request({
+          url: '/gegevensDelete',
+          method: 'post',
+          data: {
+            'gegevens_id': _this2.state.delItem.gegevens_id
+          }
+        }).then(function (response) {
+          if (response.data !== undefined) {
+            console.log(response);
+
+            if (response.data.result) {
+              _this2.getData(_this2.state.date);
+
+              _this2.toggleDelete();
+            }
+          }
+        });
+      }; // this toggles the delete popup
+      // toggleDelete
+      // calls Null
+
+
+      this.toggleDelete = function () {
+        _this2.setState({
+          deletePopup: !_this2.state.deletePopup
+        });
+      }; // this toggles the add popup
+      // toggleAdd
+      // calls Null
+
+
+      this.toggleAdd = function () {
+        _this2.setState({
+          addPopup: !_this2.state.addPopup
+        });
+      }; // this function will add a new item to the crud. This gets done by a popup. This handels the final fetch
+      // add
+      // calls Null
+
+
+      this.add = function () {
+        axios__WEBPACK_IMPORTED_MODULE_3___default.a.request({
+          url: '/gegevens',
+          method: 'put',
+          data: _objectSpread({
+            'gegevens_datum': _this2.state.date,
+            'gegevens_week': _this2.state.weekNo,
+            'days_id': _this2.state.day_id,
+            'gegevens_jaar': _this2.state.year
+          }, _this2.state.editItem)
+        }).then(function (response) {
+          if (response.data !== undefined) {
+            if (response.data.result) {
+              var items = _this2.state.items;
+              items.push(response.data.item);
+
+              _this2.setState({
+                items: items
+              });
+
+              _this2.toggleAdd();
+            }
+          }
+        });
+      };
+
+      this.toggleMail = function () {
+        _this2.setState({
+          mail: !_this2.state.mail
+        });
+
+        console.log(_this2.state);
+      };
+
+      this.sendMail = function () {
+        _this2.setState({
+          mailMsg: 'De mail is bezig met versturen even geduld aub',
+          mail: true
+        });
+
+        axios__WEBPACK_IMPORTED_MODULE_3___default.a.request({
+          url: '/gegevens/pdf',
+          method: 'post',
+          data: {
+            'gegevens_week': _this2.state.weekNo
+          }
+        }).then(function (response) {
+          if (response.status > 199 && response.status < 300) {
+            _this2.setState({
+              mailMsg: 'Mail verstuurd.'
+            });
+          } else {
+            _this2.setState({
+              mailMsg: response.statusText
+            });
+          }
+        });
+      };
+
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "crud__box"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -62474,7 +62776,12 @@ function (_Component) {
             date: document.querySelector('.date__picker').value
           }), _this2.getData(_this2.state.date);
         }
-      }, "ophalen")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, "ophalen"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        className: "button",
+        onClick: function onClick() {
+          _this2.toggleAdd(), _this2.edit([], null);
+        }
+      }, "Nieuw")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "crud__container"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "item"
@@ -62522,9 +62829,17 @@ function (_Component) {
         }, " edit "), item.gegevens_id === null ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           className: "button"
         }, " leeg ") : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this2.delete(i, item);
+          },
           className: "button item__button"
         }, " verwijder "));
-      }))), this.state.editItem.gegevens_id !== undefined && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Edit__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        className: "button button--down button--normal",
+        onClick: function onClick() {
+          return _this2.sendMail();
+        }
+      }, "PDF mailen")), this.state.editItem.gegevens_id !== undefined && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Edit__WEBPACK_IMPORTED_MODULE_4__["default"], {
         handler: function handler() {
           return _this2.fetchEdit();
         },
@@ -62536,17 +62851,24 @@ function (_Component) {
         changeHandler: function changeHandler(e) {
           return _this2.changeHandler(e);
         },
-        editLoc: function editLoc(e) {
-          return _this2.editLoc(e);
-        },
-        editAan: function editAan(e) {
-          return _this2.editAan(e);
-        },
-        editVer: function editVer(e) {
-          return _this2.editVer(e);
-        },
         item: this.state.editItem
-      }));
+      }), this.state.addPopup && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Edit__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        handler: function handler() {
+          return _this2.add();
+        },
+        close: this.toggleAdd,
+        changeHandler: function changeHandler(e) {
+          return _this2.changeHandler(e);
+        }
+      }), this.state.deletePopup && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Delete__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        handler: function handler() {
+          return _this2.fetchDelete();
+        },
+        item: this.state.delItem,
+        close: this.toggleDelete
+      }), this.state.mail && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Mail__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        close: this.toggleMail
+      }, this.state.mailMsg));
     }
   }]);
 
