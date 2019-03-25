@@ -62377,7 +62377,7 @@ function (_Component) {
         className: "popup__box popup popup--warning"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "popup__text"
-      }, this.props.children, this.props.children === 'Mail verstuurd.' && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, this.props.children, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "button button--normal",
         onClick: this.props.close
       }, "Oke")));
@@ -62667,8 +62667,6 @@ function (_Component) {
           }
         }).then(function (response) {
           if (response.data !== undefined) {
-            console.log(response);
-
             if (response.data.result) {
               _this2.getData(_this2.state.date);
 
@@ -62729,8 +62727,6 @@ function (_Component) {
         _this2.setState({
           mail: !_this2.state.mail
         });
-
-        console.log(_this2.state);
       };
 
       this.sendMail = function () {
@@ -62751,9 +62747,15 @@ function (_Component) {
               mailMsg: 'Mail verstuurd.'
             });
           } else {
-            _this2.setState({
-              mailMsg: response.statusText
-            });
+            if (response.statusText !== undefined) {
+              _this2.setState({
+                mailMsg: response.statusText
+              });
+            } else {
+              _this2.setState({
+                mailMsg: 'er ging iets mis probeer het later opnieuw.'
+              });
+            }
           }
         });
       };

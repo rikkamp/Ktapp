@@ -168,7 +168,6 @@ export default class Index extends Component {
 					'gegevens_id': this.state.delItem.gegevens_id
 				}}).then(response => {
 				if(response.data !== undefined) {
-					console.log(response)
 					if(response.data.result) {
 						this.getData(this.state.date);
 						this.toggleDelete();
@@ -230,7 +229,6 @@ export default class Index extends Component {
 			this.setState({
 				mail: !this.state.mail
 			});
-			console.log(this.state)
 		}
 
 		this.sendMail = () => {
@@ -248,7 +246,11 @@ export default class Index extends Component {
 					if(response.status > 199 && response.status < 300) {
 						this.setState({mailMsg: 'Mail verstuurd.'})
 					} else {
-						this.setState({mailMsg: response.statusText})
+						if(response.statusText !== undefined) {
+							this.setState({mailMsg: response.statusText})
+						} else {
+							this.setState({mailMsg: 'er ging iets mis probeer het later opnieuw.'})
+						}
 					}
 				} 
 			)
