@@ -1,27 +1,46 @@
 .login {
-	display: block;
-	&__container {
-		height: calc(100vh - 80px);
-		position: relative;
-		background-color: blue;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
+	display: flex;
+	justify-content: center;
+	height: 95%;
+	align-items: center;
+	
 	&__form {
-		background: white;
+		background: $nav-blue;
 		border-radius: 8px;
 		margin: 0 auto;
-		width: 35%;
+		width: 80%;
+		height: 62%;
+		padding: 34px;
 		position: relative;
 		display: flex;
 		flex-direction: column;
 	}
 
 	&__input {
-		width: 45%;
-		margin: 0 auto;
+		border-radius: 8px;
+		border: none;
+		height: 26px;
+	}
+
+	&__text {
+		color: $orange;
+		font-family: $font;
+		margin-bottom: 8px;
+		font-size: 20px;
+	}
+
+	&__checkbox {
+		border-radius: 8px;
+		padding: 0;
+		height: 16px;
+		width: 16px;
+	}
+
+	&__title {
+		color: $orange;
+		font-family: $font;
+		font-weight: 800;
+		margin-bottom: 10px;
 	}
 }
 

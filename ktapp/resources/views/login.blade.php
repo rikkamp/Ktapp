@@ -8,10 +8,7 @@
 	<link rel='stylesheet' href='css/app.css'>
 </head>
 <body>
-	
-	{{-- <div class="login">
 
-	</div> --}}
 	<script src='js/app.js'></script>
 	@if (Auth::viaRemember() || isset(Auth::user()->email))
 
@@ -33,14 +30,22 @@
 		@endforeach
 
 	@endif
-
-	<form method="post" action={{url('/checklogin')}}>
-		{{ csrf_field() }}
-		email<input type="email" name="email">
-		pass<input type="password" name="password">
-		<label for="remember_me"><input type="checkbox" name="remember_me" id="remember">Remember Me</label>
-		<input type="submit" name="login" value='login'>
-	</form>
-
+	<nav class="nav">
+	</nav>
+		<div class="login">
+			<form class="login__form" method="post" action={{url('/checklogin')}}>
+				{{ csrf_field() }}
+				<h2 class="login__title">Welkom bij de transport app</h2>
+				<p class="login__text">Gebruikersnaam: </p><input class="login__input" type="email" name="email">
+				<p class="login__text">Wachtwoord: </p><input class="login__input" type="password" name="password">
+				<label class="login__text" for="remember_me"><input type="checkbox" name="remember_me" class="login__checkbox" id="remember">Remember Me</label>
+				<input class="button--normal button" type="submit" name="login" value='login'>
+			</form>
+		</div>
+		<footer class="footer nav">
+			<div class="credits">
+				<span class="credits__text">Made by Rik Kampman</span>
+			</div>
+		</footer>
 </body>
 </html>

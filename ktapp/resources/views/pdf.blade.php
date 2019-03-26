@@ -6,7 +6,7 @@
 	<title>PDF</title>
 </head>
 <body style="margin: 0">
-		<span style='margin-top: 8px;'>Week: {{$week}}</span>
+		<p style='margin-top: 25px; margin-left:25px;'>Week: {{$week}}</p>
 		<br><? $i = 0;?>
 	<table style='width:100vw'>
 	@foreach ($default as $dag)

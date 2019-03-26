@@ -7,8 +7,7 @@ export default class Edit extends Component {
 			<Popup className='popup__box edit'>
 				<div>
 					<div className='popup__title'>
-						<h2>Aanpassen</h2>
-						<span onClick={this.props.close} >x</span>
+						<h2>{this.props.item !== undefined ? ('Aanpassen') : ('Nieuw')}<span onClick={this.props.close} ><img className='times' src='../images/times-solid.svg' /></span></h2>
 					</div>
 					<div className='edit__content'>
 						<span className='edit__label'>
@@ -18,7 +17,7 @@ export default class Edit extends Component {
 						<label>Locatie</label><input name='gegevens_locatie' type='text' placeholder={this.props.item !== undefined ? this.props.item.gegevens_locatie : 'Locatie'} className='edit__text edit__text--long' onChange={this.props.changeHandler} ></input>
 						</span>
 						<span className='edit__label'>
-						<label>Aankomst</label><input name='gegevens_aankomst' type='text' placeholder={this.props.item !== undefined ? this.props.item.gegevens_aankomst : 'Aankomst'} className='edit__text edit__text--long' onChange={this.props.changeHandler}></input>
+						<label>Aankomst</label><input name='gegevens_aankomst' type='text' placeholder={this.props.item !== undefined ? this.props.item.gegevens_aankomst : 'Aankomst'} className='edit__text edit__text--long' onChange={this.props.changeHandler} ></input>
 						</span>
 						<span className='edit__label'>
 						<label>Vertrek</label><input name='gegevens_vertrek' type='text' placeholder={this.props.item !== undefined ? this.props.item.gegevens_vertrek : 'Vertrek'} className='edit__text edit__text--long' onChange={this.props.changeHandler}></input>

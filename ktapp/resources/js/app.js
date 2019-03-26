@@ -13,7 +13,6 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/Login');
 require('./components/index');
 require('./components/Popup');
 require('./components/Button');
