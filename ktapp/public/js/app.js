@@ -62166,6 +62166,7 @@ function (_Component) {
         onClick: this.props.close
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "times",
+        onClick: this.props.close,
         src: "../KTapp/images/times-solid.svg"
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit__content"
@@ -62771,7 +62772,7 @@ function (_Component) {
           return _this2.add();
         },
         close: function close() {
-          _this2.getData(_this2.state.date), _this2.toggleAdd;
+          _this2.getData(_this2.state.date), _this2.toggleAdd();
         },
         changeHandler: function changeHandler(e) {
           return _this2.changeHandler(e);

@@ -289,10 +289,10 @@ export default class Index extends Component {
 					<button className='button button--down button--normal' onClick={() => this.sendMail()} >PDF mailen</button>
 				</div>
 				{this.state.editItem.gegevens_id !== undefined && 
-					<Edit handler={() => this.fetchEdit()}close={() => {this.getData(this.state.date), this.setState({editItem: []})}} changeHandler={(e) => this.changeHandler(e)} item={this.state.editItem} />
+					<Edit handler={() => this.fetchEdit()} close={() => {this.getData(this.state.date), this.setState({editItem: []})}} changeHandler={(e) => this.changeHandler(e)} item={this.state.editItem} />
 				}
 				{this.state.addPopup &&
-				<Edit handler={() => this.add() } close={() => {this.getData(this.state.date), this.toggleAdd}} changeHandler={(e) => this.changeHandler(e)} />
+				<Edit handler={() => this.add() } close={() => {this.getData(this.state.date), this.toggleAdd()}} changeHandler={(e) => this.changeHandler(e)} />
 				}
 				{this.state.deletePopup && 
 				<Delete handler={() => this.fetchDelete()} item={this.state.delItem} close={this.toggleDelete} />

@@ -167,7 +167,7 @@ class GegevensController extends Controller
             Mail::send('mail', $info, function ($message) use ($path, $week, $user) {
                 $message->from('KT-APP@noreply.com', 'root');
                 $message->to($user['email'], $user['name']);
-                $message->attach(public_path() . '/' . $path);
+                $message->attach(url('./') . '/' . $path);
                 $message->subject("De gegevens van week ".$week);
             });
 

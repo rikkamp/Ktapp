@@ -42,7 +42,7 @@ export default class Edit extends Component {
 			<Popup className='popup__box edit'>
 				<div>
 					<div className='popup__title'>
-						<h2>{this.props.item !== undefined ? ('Aanpassen') : ('Nieuw')}<span onClick={this.props.close} ><img className='times' src='../KTapp/images/times-solid.svg' /></span></h2>
+						<h2>{this.props.item !== undefined ? ('Aanpassen') : ('Nieuw')}<span onClick={this.props.close} ><img className='times' onClick={this.props.close} src='../KTapp/images/times-solid.svg' /></span></h2>
 					</div>
 					<div className='edit__content'>
 						<span className='edit__label'>
