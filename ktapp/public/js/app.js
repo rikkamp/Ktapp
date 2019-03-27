@@ -62402,7 +62402,7 @@ function (_Component) {
 
       this.getData = function (date) {
         axios__WEBPACK_IMPORTED_MODULE_3___default.a.request({
-          url: '/gegevensGet',
+          url: document.getElementById('gegevensGet').content,
           method: 'post',
           data: {
             'gegevens_datum': date
@@ -62480,7 +62480,7 @@ function (_Component) {
             switch (_context.prev = _context.next) {
               case 0:
                 axios__WEBPACK_IMPORTED_MODULE_3___default.a.request({
-                  url: '/gegevens',
+                  url: document.getElementById('gegevensPost').content,
                   method: 'post',
                   data: _this2.state.editItem
                 });
@@ -62511,7 +62511,7 @@ function (_Component) {
 
       this.fetchDelete = function () {
         axios__WEBPACK_IMPORTED_MODULE_3___default.a.request({
-          url: '/gegevensDelete',
+          url: document.getElementById('gegevensDelete').content,
           method: 'post',
           data: {
             'gegevens_id': _this2.state.delItem.gegevens_id
@@ -62550,7 +62550,7 @@ function (_Component) {
 
       this.add = function () {
         axios__WEBPACK_IMPORTED_MODULE_3___default.a.request({
-          url: '/gegevens',
+          url: document.getElementById('gegevensPut').content,
           method: 'put',
           data: _objectSpread({
             'gegevens_datum': _this2.state.date,
@@ -62587,7 +62587,7 @@ function (_Component) {
         });
 
         axios__WEBPACK_IMPORTED_MODULE_3___default.a.request({
-          url: '/gegevens/pdf',
+          url: document.getElementById('gegevensPdf').content,
           method: 'post',
           data: {
             'gegevens_week': _this2.state.weekNo

@@ -12,7 +12,7 @@
 	<script src='js/app.js'></script>
 	@if (Auth::viaRemember() || isset(Auth::user()->email))
 
-		<script>window.location = '/home'</script>
+		<script>window.location = '/KTapp/home'</script>
 
 	@endif
 	@if ($message = Session::get('error'))

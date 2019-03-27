@@ -17,11 +17,11 @@ Route::get('/', function () {
 
 Route::get('/', 'LoginController@index');
 Route::post('/checklogin', 'LoginController@checklogin');
-Route::get('/home', 'LoginController@successlogin');
-Route::get('/loggout', 'LoginController@loggout');
-Route::post('/gegevensGet', 'gegevensController@get');
-Route::put('/gegevens', 'gegevensController@create');
-Route::post('/gegevens', 'gegevensController@update');
-Route::post('/gegevensDelete', 'gegevensController@archive');
-Route::post('/gegevens/pdf', 'gegevensController@pdf');
+Route::get('/home', ['as' => 'home', 'uses' => 'LoginController@successlogin']);
+Route::get('/loggout', ['as' => 'loggout', 'uses' => 'LoginController@loggout']);
+Route::post('/gegevensGet', ['as' => 'gegevensGet', 'uses' => 'gegevensController@get']);
+Route::put('/gegevens', ['as' => 'gegevensPut', 'uses' => 'gegevensController@create']);
+Route::post('/gegevens', ['as' => 'gegevensPost', 'uses' => 'gegevensController@update']);
+Route::post('/gegevensDelete', ['as' => 'gegevensDelete', 'uses' => 'gegevensController@archive']);
+Route::post('/gegevens/pdf', ['as' => 'gegevensPdf', 'uses' => 'gegevensController@pdf']);
 

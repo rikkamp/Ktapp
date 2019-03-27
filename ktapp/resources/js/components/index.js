@@ -74,7 +74,7 @@ export default class Index extends Component {
 
 		this.getData = (date) => {
 			axios.request({
-				url: '/gegevensGet',
+				url: document.getElementById('gegevensGet').content,
 				method: 'post',
 				data: {
 					'gegevens_datum': date
@@ -138,7 +138,7 @@ export default class Index extends Component {
 
 		this.fetchEdit = async () => {
 			axios.request({
-				url: '/gegevens',
+				url: document.getElementById('gegevensPost').content,
 				method: 'post',
 				data: this.state.editItem
 			});
@@ -162,7 +162,7 @@ export default class Index extends Component {
 
 		this.fetchDelete = () => {
 			axios.request({
-				url: '/gegevensDelete',
+				url: document.getElementById('gegevensDelete').content,
 				method: 'post',
 				data: {
 					'gegevens_id': this.state.delItem.gegevens_id
@@ -202,7 +202,7 @@ export default class Index extends Component {
 
 		this.add = () => {
 			axios.request({
-				url: '/gegevens',
+				url: document.getElementById('gegevensPut').content,
 				method: 'put',
 				data: {
 					'gegevens_datum': this.state.date,
@@ -236,7 +236,7 @@ export default class Index extends Component {
 				mailMsg: 'De mail is bezig met versturen even geduld aub',
 				mail: true
 			});
-			axios.request({url: '/gegevens/pdf',
+			axios.request({url: document.getElementById('gegevensPdf').content,
 				method: 'post',
 				data: {
 					'gegevens_week': this.state.weekNo
