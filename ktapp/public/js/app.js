@@ -62758,7 +62758,7 @@ function (_Component) {
           return _this2.fetchEdit();
         },
         close: function close() {
-          _this2.setState({
+          _this2.getData(_this2.state.date), _this2.setState({
             editItem: []
           });
         },
@@ -62770,7 +62770,9 @@ function (_Component) {
         handler: function handler() {
           return _this2.add();
         },
-        close: this.toggleAdd,
+        close: function close() {
+          _this2.getData(_this2.state.date), _this2.toggleAdd;
+        },
         changeHandler: function changeHandler(e) {
           return _this2.changeHandler(e);
         }
