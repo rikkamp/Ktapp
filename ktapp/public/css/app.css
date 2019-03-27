@@ -209,6 +209,15 @@
   float: right;
 }
 
+.time {
+  border: 0;
+  background: url(/images/clock-regular.svg?9ccac7fbab6377daccb7a582c2ea5bc8);
+  color: transparent;
+  background-repeat: no-repeat;
+  width: 30px;
+  background-position: center;
+}
+
 .login {
   display: flex;
   justify-content: center;

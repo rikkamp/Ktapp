@@ -280,7 +280,7 @@ export default class Index extends Component {
 								{item.gegevens_aankomst === null ? (<p className='item__name--empty'> leeg </p>) : (<p className='item__name'> {item.gegevens_aankomst}</p>)}
 								{item.gegevens_vertrek === null ? (<p className='item__name--empty'> leeg </p>) : (<p className='item__name'> {item.gegevens_vertrek}</p>)}
 								{item.gegevens_no === null ? (<p className='item__name--empty'> leeg </p>) : (<p className='item__name'> {item.gegevens_no}</p>)}
-								{item.gegevens_id === null ? (<button className='button'> leeg </button>) : (<button onClick={() => this.edit(item, i)} className='button item__button'> edit </button>)}
+								{item.gegevens_id === null ? (<button className='button'> leeg </button>) : (<button onClick={() => this.edit(item, i)} className='button item__button'> aanpassen </button>)}
 								{item.gegevens_id === null ? (<button className='button'> leeg </button>) : (<button onClick={() => this.delete(i, item)} className='button item__button'> verwijder </button>)}
 							</div>
 						))

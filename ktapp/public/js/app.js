@@ -62104,15 +62104,60 @@ var Edit =
 function (_Component) {
   _inherits(Edit, _Component);
 
-  function Edit() {
+  function Edit(props) {
+    var _this;
+
     _classCallCheck(this, Edit);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Edit).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Edit).call(this, props));
+    _this.state = {
+      aankomst: '00:00',
+      vertrek: '00:00'
+    };
+    return _this;
   }
 
   _createClass(Edit, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({
+        aankomst: this.getTime(),
+        vertrek: this.getTime()
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
+      this.getTime = function () {
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+
+        if (hours < 10) {
+          hours = '0' + hours;
+        }
+
+        return hours + ':' + minutes;
+      };
+
+      this.changeAankomst = function (e) {
+        _this2.setState({
+          aankomst: e.target.value
+        });
+
+        document.querySelector('input[name=gegevens_aankomst]').value = e.target.value;
+      };
+
+      this.changeVertrek = function (e) {
+        _this2.setState({
+          vertrek: e.target.value
+        });
+
+        document.querySelector('input[name=gegevens_vertrek]').value = e.target.value;
+      };
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Popup__WEBPACK_IMPORTED_MODULE_1__["default"], {
         className: "popup__box edit"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -62121,7 +62166,7 @@ function (_Component) {
         onClick: this.props.close
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "times",
-        src: "../images/times-solid.svg"
+        src: "../KTapp/images/times-solid.svg"
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit__content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -62143,6 +62188,14 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "edit__label"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Aankomst"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "time",
+        value: this.state.aankomst,
+        onClick: this.changeAankomst,
+        onChange: function onChange(e) {
+          return _this2.changeAankomst(e);
+        },
+        type: "time"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "gegevens_aankomst",
         type: "text",
         placeholder: this.props.item !== undefined ? this.props.item.gegevens_aankomst : 'Aankomst',
@@ -62151,6 +62204,14 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "edit__label"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Vertrek"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "time",
+        value: this.state.vertrek,
+        onClick: this.changeVertrek,
+        onChange: function onChange(e) {
+          return _this2.changeVertrek(e);
+        },
+        type: "time"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "gegevens_vertrek",
         type: "text",
         placeholder: this.props.item !== undefined ? this.props.item.gegevens_vertrek : 'Vertrek',
@@ -62679,7 +62740,7 @@ function (_Component) {
             return _this2.edit(item, i);
           },
           className: "button item__button"
-        }, " edit "), item.gegevens_id === null ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        }, " aanpassen "), item.gegevens_id === null ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           className: "button"
         }, " leeg ") : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
           onClick: function onClick() {

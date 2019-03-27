@@ -38,7 +38,7 @@
 				<h2 class="login__title">Welkom bij de transport app</h2>
 				<p class="login__text">Gebruikersnaam: </p><input class="login__input" type="email" name="email">
 				<p class="login__text">Wachtwoord: </p><input class="login__input" type="password" name="password">
-				<label class="login__text" for="remember_me"><input type="checkbox" name="remember_me" class="login__checkbox" id="remember">Remember Me</label>
+				<label class="login__text" for="remember_me"><input type="checkbox" name="remember_me" class="login__checkbox" id="remember">Onthoudt mij</label>
 				<input class="button--normal button" type="submit" name="login" value='login'>
 			</form>
 		</div>

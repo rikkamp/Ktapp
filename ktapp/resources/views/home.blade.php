@@ -15,7 +15,7 @@
 <nav class="nav">
 	@if(isset(Auth::user()->email))
 		<span class="nav__item">
-			ghallo {{Auth::user()->email}}
+			Welkom {{Auth::user()->email}}
 		</span>
 		<a href='/KTapp/loggout' class="nav__item--loggout"></a>
 	@else
